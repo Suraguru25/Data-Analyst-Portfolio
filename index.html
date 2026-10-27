@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#081426">
+<meta name="description" content="Suraguru — Data Analyst portfolio featuring Power BI, Python, SQL, and Excel projects.">
+<title>Suraguru — Data Analyst Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#091426;--navy:#0c1c34;--blue:#6ea8ff;--blue2:#2f70e8;--paper:#f6f8fb;--white:#fff;--muted:#9baac0;--text:#15243a;--line:rgba(148,163,184,.22);--radius:24px;--max:1320px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:0}body{margin:0;font-family:"DM Sans",sans-serif;color:var(--text);background:var(--paper);overflow-x:hidden}a{color:inherit}button,a{-webkit-tap-highlight-color:transparent}.wrap{width:min(var(--max),calc(100% - 64px));margin:auto}
+.nav{position:fixed;z-index:20;top:0;left:0;right:0;padding:16px 0;background:rgba(8,20,38,.72);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08);transition:background .3s,box-shadow .3s}.nav.scrolled{background:rgba(8,20,38,.94);box-shadow:0 10px 35px #02081725}.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-family:Manrope,sans-serif;font-weight:800;color:white;text-decoration:none;letter-spacing:-.06em;font-size:1.18rem}.brand span{color:var(--blue)}.nav-links{display:flex;gap:28px;align-items:center}.nav-links a{font-size:.88rem;text-decoration:none;color:#c4cfdf;transition:color .2s}.nav-links a:hover{color:white}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:700;border-radius:999px;padding:12px 18px;transition:transform .25s,background .25s,border-color .25s}.nav-cta{font-size:.84rem;background:white;color:var(--ink)}.nav-cta:hover,.btn:hover{transform:translateY(-2px)}.menu-btn{display:none;background:none;border:1px solid #ffffff35;border-radius:999px;color:white;padding:9px 13px;font:inherit}
+.hero{position:relative;min-height:790px;padding:150px 0 92px;background:radial-gradient(ellipse at 75% 40%,#1e4a8138,transparent 36%),radial-gradient(ellipse at 18% 84%,#174b9230,transparent 34%),var(--ink);color:white;overflow:hidden;isolation:isolate}.hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.17;background-image:linear-gradient(#a7c8ff12 1px,transparent 1px),linear-gradient(90deg,#a7c8ff12 1px,transparent 1px);background-size:68px 68px;mask-image:linear-gradient(to bottom,black,transparent 92%)}.glow{position:absolute;width:420px;height:420px;right:6%;top:22%;border-radius:50%;background:#2f70e822;filter:blur(60px);animation:glow 8s ease-in-out infinite alternate;pointer-events:none}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #7caeff48;background:#4d8cf21b;border-radius:999px;padding:8px 13px;color:#b8d3ff;font-size:.77rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700}.dot{width:7px;height:7px;background:#80b5ff;border-radius:50%;box-shadow:0 0 14px #80b5ff}.hero h1{font-family:Manrope,sans-serif;font-size:clamp(3.2rem,6.4vw,6.2rem);line-height:.99;letter-spacing:-.075em;margin:28px 0 20px;font-weight:800;max-width:780px}.hero h1 em{font-style:normal;color:#8dbaff}.hero-lead{font-size:1.12rem;line-height:1.8;color:#aab8cd;max-width:590px;margin:0 0 28px}.hero-lead strong{color:#edf4ff;font-weight:600}.actions{display:flex;flex-wrap:wrap;gap:12px}.btn-primary{background:#f5f8ff;color:#0a1730}.btn-secondary{border:1px solid #ffffff35;color:white;background:#ffffff08}.btn-secondary:hover{background:#ffffff15}.hero-note{font-size:.82rem;color:#7f91aa;margin-top:24px}.hero-visual{position:relative;min-height:390px;display:flex;align-items:center;justify-content:center;perspective:1000px}.dashboard-card{position:relative;width:min(100%,370px);padding:22px;border:1px solid #ffffff22;border-radius:24px;background:linear-gradient(145deg,#ffffff16,#ffffff08);backdrop-filter:blur(18px);box-shadow:0 35px 90px #0005;transform:scale(.96) rotateY(-7deg) rotateX(3deg);animation:float 7s ease-in-out infinite;transform-style:preserve-3d;will-change:transform}.dash-top{display:flex;justify-content:space-between;align-items:center;color:#dce8fb;font-size:.82rem}.dash-label{color:#8fa3c1;font-size:.72rem}.dash-kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}.kpi{padding:14px;border-radius:14px;background:#07152b7a;border:1px solid #ffffff0e}.kpi b{display:block;font:700 1.45rem Manrope,sans-serif;color:white}.kpi span{font-size:.72rem;color:#92a5c1}.chart{height:120px;display:flex;align-items:end;gap:8px;padding:12px 6px 0;border-bottom:1px solid #ffffff1c}.bar{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(to top,#3475e9,#91bdff);opacity:.9;animation:barIn 1s both;transform-origin:bottom}.chart-foot{display:flex;justify-content:space-between;margin-top:10px;font-size:.7rem;color:#8195b4}
+.eyebrow{font-size:calc(.78rem + 2px)}
+.hero-visual{flex-direction:column;gap:22px;padding:12px 0 4px}
+
+.dash-tools{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.tool-card{padding:14px;border-radius:14px;background:#07152b7a;border:1px solid #ffffff0e;color:#dce8fb;min-height:66px;display:flex;align-items:center}
+.tool-card b{font:600 1rem Manrope,sans-serif;color:#fff}
+.dash-label{margin:8px 0 2px;letter-spacing:.02em}
+.chart-foot{display:flex;justify-content:space-between;margin-top:10px;font-size:.7rem;color:#8195b4}
+.hero-metrics{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:10px;width:min(100%,370px);margin-top:16px}
+.hero-metric{min-width:0;padding:12px 13px;border:1px solid #ffffff22;border-radius:14px;background:linear-gradient(145deg,#ffffff16,#ffffff08);backdrop-filter:blur(18px);box-shadow:0 14px 36px #0003;color:#dce8fb}
+.hero-metric{transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease;cursor:default}
+.hero-metric:hover{transform:translateY(-4px);border-color:#8dbaff75;background:linear-gradient(145deg,#ffffff20,#ffffff0b);box-shadow:0 18px 40px #0004,0 0 18px #6ea8ff12}
+.hero-metric strong{display:block;font:800 1rem Manrope,sans-serif;letter-spacing:-.025em;color:#fff;margin-bottom:4px}
+.hero-metric span{display:block;font-size:.68rem;line-height:1.4;color:#9fb4d3}
+@media(max-width:760px){.hero-metrics{width:min(100%,370px)}.hero-visual{min-height:0;margin-top:18px}}
+.floating-tag{position:absolute;border:1px solid #ffffff25;background:#102440e8;backdrop-filter:blur(12px);border-radius:14px;padding:12px 15px;color:#dce8fb;box-shadow:0 14px 40px #0003;font-size:.8rem;animation:float 6s ease-in-out infinite}.floating-tag b{display:block;font-size:1rem;margin-bottom:3px}.tag-one{left:-4%;top:12%}.tag-two{right:-4%;bottom:12%;animation-delay:-2s}
+.section{padding:110px 0}.section-head{max-width:700px;margin-bottom:48px}.kicker{color:#3977d9;font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:13px}.section h2{font:800 clamp(2.2rem,4vw,3.65rem)/1.08 Manrope,sans-serif;letter-spacing:-.065em;margin:0 0 18px;color:#0b1930}.section-head p{color:#68778c;font-size:1.05rem;line-height:1.8;margin:0}.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}.intro-copy p{font-size:1rem;line-height:1.9;color:#526176;margin:0 0 17px}.quote{margin-top:28px;padding:20px 22px;border-left:3px solid #4385ed;background:#eaf2ff;border-radius:0 16px 16px 0;color:#294c7d;line-height:1.7}.strengths{display:grid;gap:13px}.strength{display:flex;gap:15px;padding:18px;background:white;border:1px solid #e4eaf2;border-radius:17px;box-shadow:0 8px 25px #11294c06}
+.strength{transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease,background .28s ease}
+.strength:hover{transform:translateY(-4px);border-color:#c7daf8;background:linear-gradient(145deg,#fff,#f8fbff);box-shadow:0 16px 34px #11294c10}
+.strength:hover .strength-icon{background:#dceaff;transform:scale(1.04)}
+.strength-icon{transition:background .28s ease,transform .28s ease}.strength-icon{flex:0 0 42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#eaf2ff;color:#2867c9;font-size:1.1rem}.strength h3{font-size:.95rem;margin:2px 0 5px;color:#162844}.strength p{font-size:.83rem;line-height:1.6;color:#77869a;margin:0}
+.skills{background:#fff}.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.skill-box{border:1px solid #e4eaf2;border-radius:19px;padding:23px;background:linear-gradient(145deg,#fff,#f9fbfe);transition:transform .3s,box-shadow .3s}.skill-box:hover{transform:translateY(-5px);box-shadow:0 18px 35px #11294c0d}.skill-icon{font-size:1.35rem;margin-bottom:18px}.skill-box h3{font:700 1rem Manrope,sans-serif;margin:0 0 9px}.skill-box p{font-size:.84rem;line-height:1.7;color:#738198;margin:0}.skill-foot{color:#8996a8;font-size:.82rem;margin-top:20px}
+.featured{background:#081426;color:white;position:relative;overflow:hidden}.featured:before{content:"";position:absolute;right:-170px;top:10%;width:460px;height:460px;border-radius:50%;background:#1b55a51a;filter:blur(50px)}.featured .section h2,.featured h2{color:white}.featured .section-head p{color:#9eacc0}.featured .kicker{color:#8cb9ff}.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;position:relative}.project{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:360px;padding:27px;border:1px solid #ffffff19;border-radius:23px;background:linear-gradient(145deg,#ffffff0c,#ffffff05);transition:transform .35s,border-color .35s,background .35s}.project:hover{transform:translateY(-6px);border-color:#7caeff66;background:linear-gradient(145deg,#ffffff13,#ffffff08)}.project-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.project-num{font-size:.74rem;color:#8198b9;letter-spacing:.12em;font-weight:700}.tool-pill{font-size:.72rem;padding:7px 10px;border-radius:999px;background:#4b88ee20;border:1px solid #75a8ff3b;color:#b8d3ff}.project h3{font:700 1.45rem/1.3 Manrope,sans-serif;letter-spacing:-.035em;margin:0 0 12px;color:white}.project p{font-size:.9rem;line-height:1.75;color:#a8b6ca;margin:0 0 22px}.project-bottom{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.tags{display:flex;gap:7px;flex-wrap:wrap}.tags span{font-size:.7rem;color:#9cacc3;background:#ffffff0a;border:1px solid #ffffff12;padding:6px 8px;border-radius:7px}.repo-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#c7ddff;font-weight:700;font-size:.83rem}.repo-link span{transition:transform .2s}.repo-link:hover span{transform:translateX(4px)}.project-feature{grid-column:span 2;min-height:280px;display:grid;grid-template-columns:1fr .75fr;gap:28px;align-items:center}.mini-visual{border:1px solid #ffffff12;border-radius:17px;padding:18px;background:#061124;min-height:185px}.mini-visual .line{display:flex;justify-content:space-between;color:#8296b5;font-size:.72rem;margin-bottom:15px}.mini-chart{height:95px;display:flex;gap:7px;align-items:end}.mini-chart i{display:block;flex:1;background:linear-gradient(#8dbaff,#2e70e8);border-radius:4px 4px 0 0;opacity:.85}
+.process{background:#edf2f8}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{padding:25px;background:#fff;border:1px solid #e1e8f1;border-radius:20px}.step-num{font:800 2rem Manrope,sans-serif;color:#b6ccef;letter-spacing:-.07em}.step h3{font:700 1.05rem Manrope,sans-serif;margin:15px 0 9px}.step p{font-size:.88rem;line-height:1.75;color:#6e7c90;margin:0}
+.experience{background:#fff}.timeline{max-width:820px;border-left:2px solid #d9e6f8;margin-left:9px;padding-left:30px}.timeline-item{position:relative;padding-bottom:32px}.timeline-item:last-child{padding-bottom:0}.timeline-item:before{content:"";position:absolute;width:12px;height:12px;background:#3977d9;border:4px solid white;box-shadow:0 0 0 2px #3977d9;border-radius:50%;left:-39px;top:5px}.timeline-date{font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3977d9;margin-bottom:8px}.timeline h3{font:700 1.1rem Manrope,sans-serif;margin:0 0 5px}.timeline .company{color:#718096;font-size:.9rem;margin-bottom:12px}.timeline p{color:#64748b;font-size:.9rem;line-height:1.8;margin:0}
+.contact{background:var(--ink);color:white;text-align:center;position:relative;overflow:hidden}.contact .section-head{margin:0 auto 30px}.contact h2{color:white}.contact .section-head p{color:#a5b4c8;margin:auto}.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.contact .btn-primary{background:white;color:#081426}.contact .btn-secondary{border-color:#ffffff35;color:white}.contact-small{margin-top:24px;color:#71839d;font-size:.8rem}.footer{background:#061020;color:#6f809a;padding:22px 0;font-size:.78rem}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.footer a{color:#aabbd2;text-decoration:none}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:translateY(0);filter:blur(0)}.reveal-left{opacity:0;transform:translateX(-22px);transition:opacity .75s ease,transform .75s ease}.reveal-left.visible{opacity:1;transform:translateX(0)}.stagger>*:nth-child(2){transition-delay:.08s}.stagger>*:nth-child(3){transition-delay:.16s}.stagger>*:nth-child(4){transition-delay:.24s}
+@keyframes float{0%,100%{transform:scale(.96) translateY(0) rotateY(-7deg) rotateX(3deg)}50%{transform:scale(.96) translateY(-12px) rotateY(-4deg) rotateX(2deg)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes glow{from{transform:translate3d(0,0,0) scale(.9);opacity:.6}to{transform:translate3d(-30px,25px,0) scale(1.12);opacity:1}}@keyframes barIn{from{transform:scaleY(.1);opacity:.1}to{transform:scaleY(1);opacity:.9}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:35px}.hero{min-height:auto}.hero-visual{min-height:350px;max-width:500px;width:100%;margin:auto}.hero h1{max-width:780px}.intro-grid{grid-template-columns:1fr;gap:35px}.skill-grid{grid-template-columns:repeat(2,1fr)}.project-feature{grid-template-columns:1fr}.project-feature .mini-visual{display:none}.steps{grid-template-columns:1fr}.nav-links{gap:16px}.nav-links a{font-size:.8rem}}
+@media(max-width:640px){.wrap{width:min(100% - 32px,var(--max))}.nav{padding:12px 0}.nav-links{display:none;position:absolute;top:58px;left:16px;right:16px;padding:18px;background:#0c1c34f7;border:1px solid #ffffff20;border-radius:16px;flex-direction:column;align-items:stretch;gap:18px}.nav-links.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}.hero{padding:125px 0 70px}.hero h1{font-size:clamp(3rem,14vw,4.4rem)}.hero-lead{font-size:1rem}.hero-visual{min-height:330px}.dashboard-card{padding:17px}.tag-one{left:-2%;top:1%}.tag-two{right:-2%;bottom:1%}.section{padding:76px 0}.section-head{margin-bottom:32px}.skill-grid,.project-grid{grid-template-columns:1fr}.project-feature{grid-column:auto}.project{min-height:unset;padding:23px}.footer-inner{flex-direction:column}.section h2{font-size:2.45rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal,.reveal-left{opacity:1;transform:none}}
+
+/* Bring the entire right-side hero graphic into the same blur-to-sharp reveal. */
+.hero-visual {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(40px) scale(.98);
+  animation: heroGraphicReveal 1s cubic-bezier(.2,.8,.2,1) .34s forwards;
+}
+@keyframes heroGraphicReveal {
+  to { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+}
+
+/* Interaction polish inspired by the reference HTML; original palette and layout retained. */
+.hero-copy .eyebrow,.hero-copy h1,.hero-copy .hero-lead,.hero-copy .actions,.hero-copy .hero-note,
+.hero-visual .hero-metrics{
+  opacity:0;filter:blur(10px);transform:translateY(24px);
+  animation:heroRise 1s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.hero-copy .eyebrow{animation-delay:.08s}
+.hero-copy h1{animation-delay:.22s}
+.hero-copy .hero-lead{animation-delay:.38s}
+.hero-copy .actions{animation-delay:.54s}
+.hero-copy .hero-note{animation-delay:.68s}
+.hero-visual 
+.hero-visual .dashboard-card{animation-delay:.34s}
+.hero-visual .hero-metrics{animation-delay:.55s}
+@keyframes heroRise{to{opacity:1;filter:blur(0);transform:translateY(0)}}
+.btn{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,background-color .35s,border-color .35s}
+.btn-primary:hover{transform:scale(1.045);box-shadow:0 0 34px 5px rgba(76,145,255,.35)}
+.btn-secondary:hover{transform:scale(1.035);background:rgba(127,169,235,.12);border-color:#6ea8ff80}
+@media(prefers-reduced-motion:reduce){
+ .hero-visual { opacity:1; filter:none; transform:none; animation:none; }
+ .hero-copy .eyebrow,.hero-copy h1,.hero-copy .hero-lead,.hero-copy .actions,.hero-copy .hero-note,
+ .hero-visual .hero-metrics{opacity:1;filter:none;transform:none;animation:none}
+}
+
+
+/* Toolkit: responsive cards, compact skill lists, and monochrome outline icons. */
+#skills .wrap{min-width:0}
+#skills .skill-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:16px;width:100%;min-width:0}
+#skills .skill-box{box-sizing:border-box;min-width:0;width:100%;height:100%;padding:24px 22px;border:1px solid rgba(148,163,184,.28);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(246,249,253,.86));backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(17,41,76,.045);overflow-wrap:anywhere;transform:translateY(0) scale(1);transform-origin:center;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s,background .35s}
+#skills .skill-box:hover{transform:translateY(-5px) scale(1.035);border-color:rgba(110,168,255,.65);background:linear-gradient(145deg,#fff,rgba(242,247,255,.96));box-shadow:0 18px 38px rgba(17,41,76,.12),0 0 0 1px rgba(110,168,255,.10)}
+#skills .skill-box:focus-within{border-color:rgba(110,168,255,.65);box-shadow:0 14px 32px rgba(17,41,76,.10)}
+@media(hover:none){#skills .skill-box:hover{transform:none;box-shadow:0 10px 30px rgba(17,41,76,.045)}}
+@media(prefers-reduced-motion:reduce){#skills .skill-box{transition:none}#skills .skill-box:hover{transform:none}}
+#skills .skill-icon{width:34px;height:34px;margin-bottom:17px;color:#111827;display:flex;align-items:center;justify-content:flex-start}
+#skills .skill-icon svg{display:block;width:32px;height:32px;max-width:100%}
+#skills .skill-box h3{margin:0 0 13px;overflow-wrap:anywhere}
+#skills .skill-points{list-style:none;margin:0;padding:0;display:grid;gap:8px;min-width:0}
+#skills .skill-points li{min-width:0;font-size:.82rem;line-height:1.45;color:#536176;overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){#skills .skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){#skills .skill-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#skills .skill-box{padding:20px 17px}}
+@media(max-width:460px){#skills .skill-grid{grid-template-columns:minmax(0,1fr);gap:13px}#skills .skill-box{padding:21px 20px}#skills .skill-points{gap:7px}}
+
+
+/* Projects: STAR case studies in a balanced 2x2 layout. */
+#projects .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+#projects .project-grid > .project,#projects .project-feature{grid-column:auto;grid-row:auto;display:flex;flex-direction:column;min-width:0;min-height:0;height:100%;padding:26px}
+#projects .project-grid > .project:hover{transform:translateY(-6px) scale(1.012);box-shadow:0 18px 38px rgba(0,0,0,.2);border-color:#7caeff66}
+#projects .project h3{font-size:1.3rem;overflow-wrap:anywhere}
+#projects .project-top{align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+#projects .star-copy{display:grid;gap:11px;margin-bottom:24px}
+#projects .star-copy p{font-size:.86rem;line-height:1.65;color:#a8b6ca;margin:0;overflow-wrap:anywhere}
+#projects .star-copy p strong{display:inline-block;color:#e4edfc;font-size:.78rem;letter-spacing:.04em;margin-bottom:2px}
+#projects .star-copy b{color:#f2f6ff;font-weight:700}
+#projects .star-copy code{font-size:.82em;color:#d7e6ff}
+#projects .project-bottom{margin-top:auto;align-items:flex-start;flex-direction:column;gap:14px}
+#projects .project-feature .mini-visual{display:none}
+@media(max-width:900px){#projects .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}#projects .project-grid > .project{padding:23px}}
+@media(max-width:640px){#projects .project-grid{grid-template-columns:minmax(0,1fr);gap:15px}#projects .project-grid > .project{min-height:0;padding:23px}#projects .project h3{font-size:1.3rem}#projects .project-bottom{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){#projects .project-grid > .project{transition:none}#projects .project-grid > .project:hover{transform:none}}
+
+
+/* Compact Problem–Analysis–Insight–Impact presentation in each wide project card. */
+#projects .project-grid{gap:16px}
+#projects .project-grid > .project{padding:20px;min-height:0}
+#projects .project-top{margin-bottom:10px}
+#projects .project h3{font-size:1.18rem;line-height:1.25;margin:0 0 12px}
+#projects .star-copy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;flex:1;min-width:0}
+#projects .star-copy p{font-size:.78rem;line-height:1.48;color:#a8b6ca;margin:0;padding:9px 10px;border:1px solid #ffffff12;border-radius:10px;background:#ffffff05;overflow-wrap:anywhere}
+#projects .star-copy p strong{display:block;color:#d7e6ff;font-size:.74rem;letter-spacing:.035em;margin-bottom:3px}
+#projects .project-bottom{margin-top:12px;gap:9px}
+#projects .tags{gap:5px}
+#projects .tags span{font-size:.65rem;padding:5px 7px}
+@media(max-width:900px){#projects .project-grid > .project{padding:17px}#projects .star-copy{gap:7px 9px}#projects .star-copy p{padding:8px;font-size:.75rem}}
+@media(max-width:640px){#projects .star-copy{grid-template-columns:minmax(0,1fr)}#projects .project-grid > .project{padding:18px}#projects .star-copy p{font-size:.8rem}}
+
+/* Approach cards: subtle hover interaction, consistent with the toolkit cards. */
+.process .step{
+  transform:translateY(0) scale(1);
+  transform-origin:center;
+  transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s,border-color .32s,background-color .32s;
+  will-change:transform;
+}
+.process .step:hover{
+  transform:translateY(-5px) scale(1.015);
+  border-color:rgba(110,168,255,.72);
+  box-shadow:0 18px 36px rgba(17,41,76,.11),0 0 0 1px rgba(110,168,255,.08);
+}
+@media(hover:none){.process .step:hover{transform:none;box-shadow:none;border-color:#e1e8f1}}
+@media(prefers-reduced-motion:reduce){.process .step{transition:none;will-change:auto}.process .step:hover{transform:none}}
+
+/* Credentials: narrow, square-like cards with compact responsive layout. */
+.credentials{background:#f6f8fb}
+.credentials-grid{display:grid;grid-template-columns:repeat(2,minmax(0,310px));justify-content:center;gap:20px}
+.credential-card{display:flex;flex-direction:column;align-items:flex-start;gap:15px;min-width:0;min-height:300px;padding:23px;border:1px solid #e1e8f1;border-radius:20px;background:linear-gradient(145deg,#fff,#f9fbfe);box-shadow:0 8px 24px rgba(17,41,76,.045);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .3s}
+.credential-card:hover{transform:translateY(-5px) scale(1.018);border-color:rgba(110,168,255,.7);box-shadow:0 17px 34px rgba(17,41,76,.11),0 0 0 1px rgba(110,168,255,.08)}
+.credential-icon{flex:0 0 46px;width:46px;height:46px;display:grid;place-items:center;border:1px solid #dce9fc;border-radius:14px;background:#edf4ff;color:#2867c9}
+.credential-icon svg{width:25px;height:25px;display:block}
+.credential-card h3{font:700 1.02rem/1.4 Manrope,sans-serif;color:#162844;margin:1px 0 6px;overflow-wrap:anywhere}
+.credential-meta{font-size:.83rem;line-height:1.6;color:#3977d9;font-weight:700;margin:0 0 8px}
+.credential-card p{font-size:.85rem;line-height:1.7;color:#718096;margin:0}
+@media(max-width:760px){.credentials-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.credential-card{padding:18px;min-height:285px}}
+@media(max-width:480px){.credentials-grid{grid-template-columns:minmax(0,1fr);max-width:340px;margin-inline:auto}.credential-card{min-height:0;padding:21px}}
+@media(hover:none){.credential-card:hover{transform:none;box-shadow:0 8px 24px rgba(17,41,76,.045)}}
+@media(prefers-reduced-motion:reduce){.credential-card{transition:none}.credential-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.hero-metric,.strength,.strength-icon{transition:none}.hero-metric:hover,.strength:hover{transform:none}.strength:hover .strength-icon{transform:none}}
+
+</style>
+
+<style id="experience-expanded-styles">
+#experience .timeline{max-width:980px}
+#experience .timeline-item{padding-bottom:38px}
+#experience .experience-points{margin:14px 0 0;padding-left:20px;display:grid;gap:10px}
+#experience .experience-points li{color:#64748b;font-size:.9rem;line-height:1.75;padding-left:3px}
+#experience .experience-points li::marker{color:#3977d9}
+#experience .experience-points strong{color:#243750;font-weight:700}
+@media(max-width:640px){#experience .experience-points{padding-left:18px;gap:9px}#experience .experience-points li{font-size:.87rem;line-height:1.7}}
+</style>
+
+<style id="contact-final-polish">
+#contact{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:100px 0 70px;background:radial-gradient(ellipse at 50% 43%,rgba(47,112,232,.15),transparent 48%),var(--ink)}
+#contact .wrap{width:min(100% - 64px,var(--max))}
+#contact .section-head{margin:0 auto 38px;max-width:780px}
+#contact .section-head .kicker{margin-bottom:22px}
+#contact .section-head h2{font-size:clamp(3.2rem,7vw,5.8rem);line-height:1.04;letter-spacing:-.075em;margin:0 0 22px;color:#f8fbff;text-shadow:0 0 8px rgba(110,168,255,.10),0 0 22px rgba(74,137,255,.06)}
+#contact .section-head p{font-size:1.05rem;color:#aab8cd}
+#contact .contact-links{display:flex;flex-direction:column;align-items:center;gap:16px}
+#contact .contact-email{min-height:58px;min-width:min(100%,340px);padding:16px 24px;gap:12px;font-size:.96rem;box-shadow:0 8px 28px rgba(226,237,255,.08);overflow-wrap:anywhere}
+#contact .contact-email svg{width:20px;height:20px;flex:0 0 20px}
+#contact .contact-email:hover{box-shadow:0 0 28px rgba(110,168,255,.2);transform:translateY(-2px)}
+#contact .contact-socials{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+#contact .contact-socials .btn{min-width:126px;min-height:46px}
+#contact .contact-socials svg{width:18px;height:18px;flex:0 0 18px}
+#contact .contact-socials .btn-secondary{background:rgba(255,255,255,.025);backdrop-filter:blur(12px)}
+#contact .contact-socials .btn-secondary:hover{border-color:#6ea8ff88;box-shadow:0 0 24px rgba(110,168,255,.1)}
+@media(max-width:640px){#contact{padding:88px 0 54px}#contact .wrap{width:calc(100% - 32px)}#contact .section-head{margin-bottom:30px}#contact .section-head h2{font-size:clamp(2.8rem,13vw,4.2rem)}#contact .contact-email{width:100%;min-width:0;font-size:.88rem;padding:15px 16px}#contact .contact-socials{width:100%}#contact .contact-socials .btn{flex:1;min-width:0}}
+@media(prefers-reduced-motion:reduce){#contact .contact-email:hover{transform:none}}
+</style>
+
+
+<style id="scroll-blur-transitions">
+/* Match Claude's reveal: every section element rises from below, sharpening as it appears. */
+.reveal,
+.reveal-left {
+  opacity: 0;
+  transform: translateY(40px) scale(.98);
+  filter: blur(8px);
+  will-change: opacity, transform, filter;
+  transition: opacity 1s cubic-bezier(.2,.8,.2,1),
+              transform 1s cubic-bezier(.2,.8,.2,1),
+              filter 1s;
+}
+.reveal.visible,
+.reveal-left.visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left,
+  .reveal.visible, .reveal-left.visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+</style>
+
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#home" aria-label="Suraguru home">SG<span>.</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Let's connect</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+  </div>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="glow"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot"></span> SURAGURU R · DATA ANALYST</span>
+      <h1>Turning data<br>into <em>decisions.</em></h1>
+      <p class="hero-lead"><strong>With 4+ years of professional experience and a certified Data Analyst skill set, I combine business operations expertise with data-driven thinking to uncover insights and solve business problems.</strong><br>Skilled in SQL, Python, Power BI, and Excel, I transform raw data into meaningful insights that support smarter decisions.</p>
+      <div class="actions">
+        <a class="btn btn-secondary" href="#projects">Explore my projects</a>
+        <a class="btn btn-secondary" href="#contact">Get in touch</a>
+        <a class="btn btn-primary" href="./Suraguru_Data_Analyst_Resume.pdf" download="Suraguru_Data_Analyst_Resume.pdf" title="Download my resume">Download resume</a>
+      </div>
+      <p class="hero-note">Business context first. Clear analysis. Practical insights.</p>
+    </div>
+    <div class="hero-visual" aria-label="Illustrative analytics dashboard graphic">
+      <div class="dashboard-card">
+        <div class="dash-tools" aria-label="Analytics tools">
+          <div class="tool-card"><b>Power BI</b></div>
+          <div class="tool-card"><b>Python</b></div>
+          <div class="tool-card"><b>SQL</b></div>
+          <div class="tool-card"><b>Excel</b></div>
+        </div>
+        <div class="chart" aria-hidden="true">
+          <i class="bar" style="height:38%;animation-delay:.05s"></i><i class="bar" style="height:62%;animation-delay:.12s"></i><i class="bar" style="height:48%;animation-delay:.2s"></i><i class="bar" style="height:76%;animation-delay:.28s"></i><i class="bar" style="height:57%;animation-delay:.36s"></i><i class="bar" style="height:88%;animation-delay:.44s"></i><i class="bar" style="height:70%;animation-delay:.52s"></i><i class="bar" style="height:96%;animation-delay:.6s"></i>
+        </div>
+        <div class="chart-foot"><span>Clean</span><span>Analyze</span><span>Communicate</span></div>
+      </div>
+      <div class="hero-metrics">
+        <div class="hero-metric"><strong>4+ Years</strong><span>Professional Experience</span></div>
+        <div class="hero-metric"><strong>1.3M+ Records</strong><span>Analyzed Across Projects</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="kicker">About me</div><h2>Analytics grounded<br>in real operations.</h2></div>
+    <div class="intro-grid">
+      <div class="intro-copy reveal-left">
+        <p>I'm a <strong>Certified Data Analyst with 4+ years of professional experience</strong> at Amazon, combining a strong background in operations, quality assurance, performance monitoring, and process improvement with hands-on data analytics skills.</p>
+        <p>My experience goes beyond day-to-day operations. I've worked with performance metrics, KPI and SLA tracking, data accuracy, root-cause investigation, and stakeholder coordination. These experiences have strengthened my ability to identify performance gaps, validate information, and make data-backed decisions in fast-paced environments.</p>
+        <p>Today, I apply that operational understanding to data analytics using <strong>SQL, Python, Power BI, and Excel</strong>. Through projects involving interactive dashboards, data modeling, data cleaning, and exploratory analysis, I transform raw datasets into meaningful insights that reveal trends, highlight opportunities, and support business decisions.</p>
+        <p>I believe effective analytics is about more than numbers and visualizations — it's about understanding the business problem, asking the right questions, and turning data into clear, actionable insights.</p>
+        <div class="quote"><strong>My goal is to bridge business operations and data analytics, helping organizations make smarter, evidence-based decisions.</strong></div>
+      </div>
+      <div class="strengths stagger">
+        <article class="strength reveal"><div class="strength-icon">⌁</div><div><h3>Operational perspective</h3><p>Experience working with quality, escalations, data accuracy and SLA-focused workflows.</p></div></article>
+        <article class="strength reveal"><div class="strength-icon">▥</div><div><h3>Data storytelling</h3><p>Presenting analysis through clear dashboards, structured findings and readable documentation.</p></div></article>
+        <article class="strength reveal"><div class="strength-icon">↗</div><div><h3>Continuous learning</h3><p>Building and documenting hands-on projects to strengthen analytical skills.</p></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section skills" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="kicker">Toolkit</div><h2>Four tools. Real practice.</h2></div>
+    <div class="skill-grid stagger">
+      <article class="skill-box reveal">
+        <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 39V24h8v15M20 39V15h8v24M32 39V8h8v31"/><path d="M5 42h38"/></svg></div>
+        <h3>Power BI</h3>
+        <ul class="skill-points"><li>Dashboard Development</li><li>DAX Measures</li><li>Power Query</li><li>Star Schema Data Modeling</li><li>KPI Visualization</li></ul>
+      </article>
+      <article class="skill-box reveal">
+        <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 7c-8 0-8 7-8 7v5h13v3H12s-5 0-5 8 5 8 5 8h5v-7s0-5 5-5h9s5 0 5-5V14s0-7-8-7z"/><path d="M24 41c8 0 8-7 8-7v-5H19v-3h17s5 0 5-8-5-8-5-8h-5v7s0 5-5 5h-9s-5 0-5 5v7s0 7 8 7z"/><circle cx="21" cy="13" r="1"/><circle cx="28" cy="35" r="1"/></svg></div>
+        <h3>Python</h3>
+        <ul class="skill-points"><li>Pandas &amp; NumPy</li><li>Data Cleaning &amp; Transformation</li><li>Exploratory Data Analysis</li><li>Grouping &amp; Aggregation</li><li>Data Visualization</li></ul>
+      </article>
+      <article class="skill-box reveal">
+        <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="24" cy="11" rx="15" ry="5"/><path d="M9 11v25c0 3 7 6 15 6s15-3 15-6V11M9 19c0 3 7 6 15 6s15-3 15-6M9 28c0 3 7 6 15 6s15-3 15-6"/></svg></div>
+        <h3>SQL</h3>
+        <ul class="skill-points"><li>JOINs</li><li>GROUP BY &amp; HAVING</li><li>Subqueries &amp; CTEs</li><li>Aggregate Functions</li><li>Window Functions</li></ul>
+      </article>
+      <article class="skill-box reveal">
+        <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="34" height="34" rx="3"/><path d="M7 18h34M7 29h34M18 7v34M29 7v34"/><path d="m11 23 4 4m0-4-4 4"/></svg></div>
+        <h3>Excel</h3>
+        <ul class="skill-points"><li>PivotTables</li><li>XLOOKUP / VLOOKUP</li><li>SUMIFS / COUNTIFS</li><li>Data Cleaning</li><li>Charts &amp; Conditional Formatting</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section featured" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="kicker">Selected work</div><h2>Projects built to<br>answer business questions.</h2><p>Project repositories across BI, Python, SQL and Excel. Open each project to explore its documentation, files and findings.</p></div>
+    <div class="project-grid stagger">
+<article class="project reveal">
+        <div class="project-top"><span class="tool-pill">Power BI</span></div>
+        <h3>ShopNest Sales Data Analysis Dashboard</h3>
+        <div class="star-copy">
+          <p><strong>Problem</strong><br>Retail data covered <b>99,441 orders</b> from 2016–2018 across sales, payments, delivery, ratings and regional trends.</p>
+          <p><strong>Analysis</strong><br>Built an interactive Power BI dashboard using Power Query, DAX and a star-schema-style model to investigate eight business questions.</p>
+          <p><strong>Insight</strong><br>Revenue reached <b>$15.84M</b> with an average rating of <b>4.09/5</b>. São Paulo led with <b>$5.20M</b>; credit cards accounted for <b>73.9%</b> of payments. Bed/Bath/Table had <b>811</b> delayed orders.</p>
+          <p><strong>Impact</strong><br>Consolidated key performance measures into one dashboard and surfaced categories and regions for further sales and delivery investigation.</p>
+        </div>
+        <div class="project-bottom"><div class="tags"><span>Sales analytics</span><span>DAX</span><span>Star schema</span></div><a class="repo-link" href="https://github.com/Suraguru25/ShopNest-Sales-Data-Analysis-Dashboard-Power-BI" target="_blank" rel="noreferrer">Explore repository <span>↗</span></a></div>
+      </article>
+<article class="project reveal">
+        <div class="project-top"><span class="tool-pill">SQL · PostgreSQL</span></div>
+        <h3>Customer Retention &amp; Cohort Analysis</h3>
+        <div class="star-copy">
+          <p><strong>Problem</strong><br>Historical retail transactions needed to explain repeat purchasing, retention timing and revenue contribution from returning customers.</p>
+          <p><strong>Analysis</strong><br>Analyzed <b>805,531 purchase lines</b> from <b>5,878 customers</b> using PostgreSQL CTEs, window functions, cohort logic and purchase-timing calculations.</p>
+          <p><strong>Insight</strong><br><b>71.27%</b> of customers purchased on multiple days. Median time to a second purchase was <b>63 days</b>; repeat customers generated <b>£16.74M</b>, or <b>96.04%</b> of gross revenue. Month-one retention ranged from <b>9.21% to 32.13%</b>.</p>
+          <p><strong>Impact</strong><br>Identified retention patterns and a potential <b>30–90-day</b> re-engagement window worth testing; the analysis does not prove a campaign would improve retention.</p>
+        </div>
+        <div class="project-bottom"><div class="tags"><span>Retention</span><span>CTEs</span><span>Cohorts</span></div><a class="repo-link" href="https://github.com/Suraguru25/Customer-Retention-Cohort-Analysis-SQL" target="_blank" rel="noreferrer">Explore repository <span>↗</span></a></div>
+      </article>
+<article class="project reveal">
+        <div class="project-top"><span class="tool-pill">Excel</span></div>
+        <h3>Online Retail Sales &amp; Customer Analysis</h3>
+        <div class="star-copy">
+          <p><strong>Problem</strong><br>A dataset of <b>541,909 transactions</b> needed structured reporting across sales, customers, products, geography, time trends and cancellations.</p>
+          <p><strong>Analysis</strong><br>Created an <b>11-sheet</b> Excel workbook with an executive dashboard, sales and customer analysis, product and country views, returns analysis and data-quality documentation.</p>
+          <p><strong>Insight</strong><br>Gross sales were <b>$10.67M</b> across <b>5.59M units</b>; average order value was <b>$534.40</b>. November 2011 peaked at about <b>$1.51M</b>, while the UK contributed <b>84.6%</b> of gross sales.</p>
+          <p><strong>Impact</strong><br>Organized the analysis into a business-friendly workbook for reviewing sales trends, customer behavior, geographic concentration and data-quality limitations.</p>
+        </div>
+        <div class="project-bottom"><div class="tags"><span>Retail analytics</span><span>Dashboard</span><span>Data quality</span></div><a class="repo-link" href="https://github.com/Suraguru25/Online-Retail-Sales-Customer-Analysis-Dashboard-Excel" target="_blank" rel="noreferrer">Explore repository <span>↗</span></a></div>
+      </article>
+<article class="project reveal">
+        <div class="project-top"><span class="tool-pill">Python</span></div>
+        <h3>Project Cost &amp; Employee Data Analysis</h3>
+        <div class="star-copy">
+          <p><strong>Problem</strong><br>Employee, seniority and project data were split across three datasets: <b>5 employees</b>, <b>5 seniority records</b> and <b>14 projects</b>, with two missing project costs.</p>
+          <p><strong>Analysis</strong><br>Used Pandas and NumPy to clean and merge data, estimate missing costs with a running average, calculate <b>5%</b> bonuses for completed projects, apply designation rules and aggregate costs by employee.</p>
+          <p><strong>Insight</strong><br>The largest calculated project bonus was <b>225,000</b>. Total project costs were <b>26.4 million</b>; Nina accounted for <b>9.5 million</b> (about <b>36%</b>). Totals include estimated missing costs.</p>
+          <p><strong>Impact</strong><br>Produced a consolidated dataset with employee-level cost summaries, calculated bonuses and rule-based designation updates for structured project-cost analysis.</p>
+        </div>
+        <div class="project-bottom"><div class="tags"><span>Data cleaning</span><span>Pandas</span><span>Aggregation</span></div><a class="repo-link" href="https://github.com/Suraguru25/Project-Cost-Employee-Data-Analysis-Python" target="_blank" rel="noreferrer">Explore repository <span>↗</span></a></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section process" id="approach">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="kicker">How I approach a problem</div><h2>From raw data to a clearer answer.</h2><p>Every analysis starts with a business question and ends with clear findings that help stakeholders make informed decisions.</p></div>
+    <div class="steps stagger">
+      <article class="step reveal"><div class="step-num">01</div><h3>Understand</h3><p>Define the business question, audience and decision the analysis should support.</p></article>
+      <article class="step reveal"><div class="step-num">02</div><h3>Investigate</h3><p>Review data quality, explore patterns and use the right tools for the question.</p></article>
+      <article class="step reveal"><div class="step-num">03</div><h3>Communicate</h3><p>Present findings clearly, document assumptions and make the next step easier to see.</p></article>
+    </div>
+  </div>
+</section>
+<section class="section experience" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="kicker">Professional background</div><h2>Experience beyond the tools.</h2><p>Bringing operational discipline and quality-focused thinking into analytics.</p></div>
+    <div class="timeline reveal-left">
+      <article class="timeline-item">
+        <div class="timeline-date">July 2022 – Present</div>
+        <h3>Digital Content Associate</h3>
+        <div class="company">Amazon Kindle</div>
+        <ul class="experience-points">
+          <li><strong>Content Operations:</strong> Manage digital content quality operations for 1,000+ ASINs per month, ensuring compliance with global publishing standards.</li>
+          <li><strong>Performance Monitoring:</strong> Track daily performance against quality, Average Handling Time (AHT), and SLA targets to identify deviations and maintain operational efficiency.</li>
+          <li><strong>Quality Assurance:</strong> Conduct quality checks and data accuracy reviews to identify inconsistencies, validate records, and support publishing quality standards.</li>
+          <li><strong>Escalation Management:</strong> Investigate high-priority content issues, perform root-cause analysis, and coordinate with international stakeholders to resolve complex cases.</li>
+          <li><strong>KPI &amp; SLA Compliance:</strong> Maintained 99.80% quality accuracy and 100% SLA compliance while managing high-volume content quality operations.</li>
+          <li><strong>Team Leadership:</strong> Coordinate workload allocation across a 10-member team, monitor task progress, and mentor new joiners on workflows and quality expectations.</li>
+          <li><strong>Stakeholder Coordination:</strong> Collaborate with cross-functional teams to resolve recurring content issues, clarify requirements, and support timely case resolution.</li>
+          <li><strong>Process Improvement:</strong> Identify recurring operational challenges, document findings, and contribute to workflow improvements that support consistency and reduce avoidable rework.</li>
+        </ul>
+      </article>
+      <article class="timeline-item">
+        <div class="timeline-date">August 2021 – February 2022</div>
+        <h3>Customer Service Associate</h3>
+        <div class="company">Amazon</div>
+        <ul class="experience-points">
+          <li><strong>Customer Query Resolution:</strong> Resolved 50+ customer queries daily involving products, services, and orders in a high-volume service environment.</li>
+          <li><strong>Customer Satisfaction:</strong> Achieved 95% customer satisfaction (CSAT) while maintaining an average handling time below seven minutes.</li>
+          <li><strong>Case Documentation:</strong> Maintained accurate customer account records and followed established confidentiality and documentation procedures.</li>
+          <li><strong>Issue Investigation:</strong> Assessed customer concerns, reviewed available information, and identified appropriate resolutions in line with service policies.</li>
+          <li><strong>Service-Level Performance:</strong> Managed competing customer requests while balancing resolution quality, handling time, and service expectations.</li>
+          <li><strong>Customer Communication:</strong> Explained solutions clearly, recommended suitable products when appropriate, and supported a consistent customer experience.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section credentials" id="credentials">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="kicker">Credentials</div><h2>Learning backed by practice.</h2><p>Building analytical foundations through structured learning and hands-on projects.</p></div>
+    <div class="credentials-grid stagger">
+      <article class="credential-card reveal">
+        <div class="credential-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5.5"/><path d="m8.5 12.2-1 8 4.5-2.5 4.5 2.5-1-8"/><path d="m10 8 1.3 1.3L14.5 6"/></svg></div>
+        <div><h3>Certified Data Analyst</h3><p class="credential-meta">Skillovilla · 2026</p><p>Data analytics training supported by practical projects using SQL, Python, Power BI, and Excel.</p></div>
+      </article>
+      <article class="credential-card reveal">
+        <div class="credential-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 8.5 9.5-5 9.5 5-9.5 5-9.5-5Z"/><path d="M6.5 11v5.2c3.4 2.8 7.6 2.8 11 0V11M21.5 9v6"/></svg></div>
+        <div><h3>B.Com — Information Technology</h3><p class="credential-meta">Nehru Arts and Science College · 2016–2019</p><p>Academic foundation in information technology and business.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="kicker">Let's connect</div><h2>Let’s talk data.</h2><p>Open to data analyst roles.</p></div>
+    <div class="contact-links reveal">
+      <a class="btn btn-primary contact-email" href="mailto:suraguru000@gmail.com" aria-label="Email suraguru000@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+        <span>suraguru000@gmail.com</span>
+      </a>
+      <div class="contact-socials">
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/suraguru" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M5.2 3.5a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4ZM3.4 9.5H7v11H3.4zM9.2 9.5h3.4V11h.1a3.7 3.7 0 0 1 3.3-1.8c3.5 0 4.2 2.3 4.2 5.2v6.1h-3.6v-5.4c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.5H9.2z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a class="btn btn-secondary" href="https://github.com/Suraguru25" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.6-1.3-1.6-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.3.8 1 .8 2v3c0 .4.2.7.8.6A11.1 11.1 0 0 0 12 .9Z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><span>© <span id="year"></span> Suraguru - Data Analyst</span></div></footer>
+<script>
+const nav=document.getElementById('nav'), menuBtn=document.getElementById('menuBtn'), navLinks=document.getElementById('navLinks');
+const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>12);window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'Close':'Menu'});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',event=>{
+  navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='Menu';
+  const href=a.getAttribute('href');
+  if(href&&href.startsWith('#')){
+    const target=document.querySelector(href);
+    if(target){
+      event.preventDefault();
+      // Keep the fixed navbar layered above the page; let sections scroll underneath it.
+      const top=target.getBoundingClientRect().top+window.scrollY;
+      window.scrollTo({top:Math.max(0,top),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+      history.replaceState(null,'',href);
+    }
+  }
+}));
+document.getElementById('year').textContent=new Date().getFullYear();
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduce&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12,rootMargin:'0px 0px -35px 0px'});document.querySelectorAll('.reveal,.reveal-left').forEach(el=>observer.observe(el))}else{document.querySelectorAll('.reveal,.reveal-left').forEach(el=>el.classList.add('visible'))}
+</script>
+
+<style id="toolkit-approach-blur-reveal-fix">
+/* Ensure the more-specific card styles do not override the shared scroll reveal. */
+#skills .skill-box.reveal,
+#approach .step.reveal {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(40px) scale(.98);
+  transition: opacity 1s cubic-bezier(.2,.8,.2,1),
+              transform 1s cubic-bezier(.2,.8,.2,1),
+              filter 1s, box-shadow .32s, border-color .32s, background .32s;
+}
+#skills .skill-box.reveal.visible,
+#approach .step.reveal.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  #skills .skill-box.reveal, #skills .skill-box.reveal.visible,
+  #approach .step.reveal, #approach .step.reveal.visible {
+    opacity: 1; filter: none; transform: none; transition: none; will-change: auto;
+  }
+}
+</style>
+
+</body>
+</html>
+<style id="project-repository-alignment">
+#projects .project-bottom{display:flex;flex-direction:row;justify-content:space-between;align-items:center;width:100%;gap:10px}
+#projects .project-bottom .repo-link{margin-left:auto;align-self:center;text-align:right;white-space:nowrap}
+#projects .project-bottom .tags{min-width:0}
+@media(max-width:640px){#projects .project-bottom{flex-direction:column;align-items:stretch}#projects .project-bottom .repo-link{align-self:flex-end;margin-left:0;text-align:right}}
+</style>
+
+
+<style id="credentials-aligned-with-approach-cards">
+/* Match Credentials card proportions and left alignment to the approach cards. */
+#credentials .credentials-grid{grid-template-columns:repeat(3,minmax(0,1fr));justify-content:start;gap:18px;width:100%;}
+#credentials .credential-card{min-height:0;height:100%;padding:25px;gap:15px;border-radius:20px;align-items:flex-start;text-align:left;transform:translateY(0) scale(1);}
+#credentials .credential-card:hover{transform:translateY(-5px) scale(1.012);border-color:rgba(110,168,255,.7);box-shadow:0 18px 35px rgba(17,41,76,.12);}
+#credentials .credential-card h3,#credentials .credential-card p{text-align:left;}
+@media(max-width:900px){#credentials .credentials-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}#credentials .credential-card{padding:23px;}}
+@media(max-width:640px){#credentials .credentials-grid{grid-template-columns:minmax(0,1fr);gap:15px;}#credentials .credential-card{padding:23px;}}
+@media(hover:none){#credentials .credential-card:hover{transform:none;box-shadow:0 8px 24px rgba(17,41,76,.045);border-color:#e1e8f1;}}
+@media(prefers-reduced-motion:reduce){#credentials .credential-card{transition:none;}#credentials .credential-card:hover{transform:none;}}
+</style>
